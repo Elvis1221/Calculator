@@ -1,11 +1,31 @@
 import React from 'react'
 
+import {Buttons} from "./Battons/NumberButton/Buttons";
+
+import {store} from "../store/store";
+
 import './calculator.css'
-import {NumbersButtons} from "./Battons/NumberButton/NumbersButtons";
 
 
-export const Calculator = ({store}) =>
+export const Calculator = () =>
   <div className='calculator'>
-     <NumbersButtons numbers={store.numbers} actions={store.actions}/>)
-    <Display />
+    <Display/>
+    <div className='buttons'>
+      {
+        store.buttons.map(b => <Buttons erase={b.erase} number={b.number} action={b.action}/>)
+      }
+    </div>
+
+
   </div>;
+
+
+const Display = () => {
+
+  return (
+
+    <div className='display'>
+      dada
+    </div>
+  )
+}
